@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct RickAndMorty {
+struct RickAndMorty: Decodable {
     let info: Info
     let results: [Character]
 }
 
-struct Info {
+struct Info: Decodable {
     let pages: Int
     let next: String?
     let prev: String?
 }
 
-struct Character {
+struct Character: Decodable {
     let id: Int
     let name: String
     let status: String
@@ -31,11 +31,11 @@ struct Character {
     let url: String
 }
 
-struct Location {
+struct Location: Decodable {
     let name: String
 }
 
-struct Episode {
+struct Episode: Decodable {
     let name: String
     let airDate: String
     let episode: String
@@ -50,6 +50,8 @@ struct Episode {
         case characters
     }
     
-    
-    
+}
+
+enum Link: String {
+    case rickAndMortyApi = "https://rickandmortyapi.com/api/character"
 }
