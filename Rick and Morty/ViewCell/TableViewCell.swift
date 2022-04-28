@@ -11,13 +11,15 @@ import AlamofireImage
 class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var characterImageView: UIImageView! {
-        didSet {
-            characterImageView.contentMode = .scaleAspectFit
-            characterImageView.clipsToBounds = true
-            characterImageView.layer.cornerRadius = characterImageView.frame.height / 2
-            characterImageView.backgroundColor = .white
-        }
+    @IBOutlet weak var characterImageView: UIImageView!
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        characterImageView.contentMode = .scaleAspectFit
+        characterImageView.clipsToBounds = true
+        characterImageView.backgroundColor = .white
+        characterImageView.layer.cornerRadius = characterImageView.frame.height / 2
     }
     
     func configure(with character: Character?) {

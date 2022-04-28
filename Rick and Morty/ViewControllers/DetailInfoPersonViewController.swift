@@ -19,12 +19,10 @@ class DetailInfoPersonViewController: UIViewController {
     }
     
     var character: Character!
-    private var spinnerView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         add()
-
     }
     
     private func add() {
@@ -34,15 +32,23 @@ class DetailInfoPersonViewController: UIViewController {
         guard let imageUrl = URL(string: character.image) else { return }
         imagePerson.af.setImage(withURL: imageUrl)
         
+        // Метод уберающий "Back"
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
     }
 
-  
-    
-    
-    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let episodesVC = navigationVC.topViewController as? EpisodesTableViewController else { return }
+        episodesVC.character = character
     }
-    
-
 }
+
+
+
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        imagePerson.layer.cornerRadius = imagePerson.frame.width / 2
+//    }

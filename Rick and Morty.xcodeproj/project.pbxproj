@@ -17,6 +17,7 @@
 		B59B0D5B2819690C00191F86 /* RickAndMorty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B0D5A2819690C00191F86 /* RickAndMorty.swift */; };
 		B5B7C84A281A6BEA00D0DAD2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7C849281A6BEA00D0DAD2 /* TableViewCell.swift */; };
 		B5B7C84D281A9D1000D0DAD2 /* DetailInfoPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7C84C281A9D1000D0DAD2 /* DetailInfoPersonViewController.swift */; };
+		B5B7C84F281AA87F00D0DAD2 /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7C84E281AA87F00D0DAD2 /* EpisodesTableViewController.swift */; };
 		D9A4BCDD0ED8019E8F50C7D5 /* Pods_Rick_and_Morty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F1F5C35F378BA375957F42 /* Pods_Rick_and_Morty.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		B59B0D5A2819690C00191F86 /* RickAndMorty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMorty.swift; sourceTree = "<group>"; };
 		B5B7C849281A6BEA00D0DAD2 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B5B7C84C281A9D1000D0DAD2 /* DetailInfoPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoPersonViewController.swift; sourceTree = "<group>"; };
+		B5B7C84E281AA87F00D0DAD2 /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewController.swift; sourceTree = "<group>"; };
 		E72FE64EEB5CC1F2150611F5 /* Pods-Rick and Morty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick and Morty.release.xcconfig"; path = "Target Support Files/Pods-Rick and Morty/Pods-Rick and Morty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 			children = (
 				B59B0D532819685E00191F86 /* MainTableViewController.swift */,
 				B5B7C84C281A9D1000D0DAD2 /* DetailInfoPersonViewController.swift */,
+				B5B7C84E281AA87F00D0DAD2 /* EpisodesTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				B59B0D542819685E00191F86 /* MainTableViewController.swift in Sources */,
 				B5B7C84D281A9D1000D0DAD2 /* DetailInfoPersonViewController.swift in Sources */,
 				B59B0D58281968D000191F86 /* NetworkManager.swift in Sources */,
+				B5B7C84F281AA87F00D0DAD2 /* EpisodesTableViewController.swift in Sources */,
 				B59B0D3A28192A0A00191F86 /* AppDelegate.swift in Sources */,
 				B59B0D3C28192A0A00191F86 /* SceneDelegate.swift in Sources */,
 			);
