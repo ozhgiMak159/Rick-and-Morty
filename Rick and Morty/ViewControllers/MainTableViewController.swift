@@ -25,8 +25,7 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = .black
-        tableView.rowHeight = 70
+        settingsTableVC()
         
         fetchData(from: Link.rickAndMortyApi.rawValue)
         
@@ -41,8 +40,11 @@ class MainTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! DetailedTableViewCell
+        
+        let character = isFiltering ? filteredCharacter[indexPath.row] : rickAndMorty?.results[indexPath.row]
+        cell.configure(with: character)
+        
         return cell
     }
     // MARK: - Navigation
@@ -63,6 +65,12 @@ class MainTableViewController: UITableViewController {
         textField.font = UIFont.boldSystemFont(ofSize: 17)
         textField.textColor = .white
     }
+    
+    private func settingsTableVC() {
+        tableView.backgroundColor = .black
+        tableView.rowHeight = 80
+    }
+    
     
     // данный метод устанавливает навигационный бар и убирает белую полоску при скролле
     private func setupNavigationBar() {

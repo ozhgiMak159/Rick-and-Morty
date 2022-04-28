@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="orW-ZX-IOL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="orW-ZX-IOL" customClass="DetailedTableViewCell" customModule="Rick_and_Morty" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="orW-ZX-IOL" id="VFh-kl-N0V">
@@ -33,7 +33,7 @@
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="296" id="Vhh-og-8Nt"/>
                                                 <constraint firstAttribute="height" constant="58" id="pft-kO-HV4"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -51,6 +51,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
+                                    <outlet property="characterImageView" destination="0LF-kZ-88U" id="cg1-ew-Ovm"/>
+                                    <outlet property="nameLabel" destination="OM2-c0-aFH" id="McI-tr-bBN"/>
                                     <segue destination="NoN-gN-04o" kind="show" id="ERZ-92-qGD"/>
                                 </connections>
                             </tableViewCell>
