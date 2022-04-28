@@ -24,7 +24,7 @@ class EpisodesDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setCharacters()
     }
     
     private func setCharacters() {
@@ -39,5 +39,16 @@ class EpisodesDetailViewController: UIViewController {
             }
         }
     }
+}
+extension EpisodesDetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        episode.characters.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+   
 
 }
