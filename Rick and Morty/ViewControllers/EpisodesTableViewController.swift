@@ -15,6 +15,7 @@ class EpisodesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        settingsTableVC()
     }
     
     // MARK: - Table view data source

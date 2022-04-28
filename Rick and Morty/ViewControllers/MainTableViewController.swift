@@ -49,8 +49,8 @@ class MainTableViewController: UITableViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        guard let detailVC = segue.destination as? DetailInfoPersonViewController else { return }
         guard let character = isFiltering ? filteredCharacter[indexPath.row] : rickAndMorty?.results[indexPath.row] else { return }
+        guard let detailVC = segue.destination as? DetailInfoPersonViewController else { return }
         detailVC.character = character
     }
     
