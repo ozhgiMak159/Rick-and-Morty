@@ -26,31 +26,44 @@ class EpisodesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath)
+        
+        var content = cell.defaultContentConfiguration()
+        let episodeURL = character.episode[indexPath.row]
+        content.textProperties.color = .white
+        content.textProperties.font = UIFont.boldSystemFont(ofSize: 19)
+        NetworkManager.shared.fetchData(dataType: Episode.self, from: episodeURL) { result in
+            switch result {
+            case .success(let episode):
+                self.episodes.append(episode)
+                content.text = episode.name
+                cell.contentConfiguration = content
+            case .failure(let error):
+                print(error)
+            }
+        }
 
         return cell
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        guard let episodeDetailsVC = segue.destination as? EpisodesTableViewController else { return }
+        episodeDetailsVC.episodes = episodes
     }
     
     private func settingsTableVC() {
         tableView.rowHeight = 70
-        tableView.backgroundColor = UIColor(
-            red: 93/255,
-            green: 93/255,
-            blue: 93/255,
-            alpha: 1)
+        tableView.backgroundColor = .black
         
         let navBarAppearance = UINavigationBarAppearance()
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navBarAppearance.backgroundColor = UIColor(
-            red: 93/255,
-            green: 93/255,
-            blue: 93/255,
-            alpha: 0.9)
+        navBarAppearance.backgroundColor = .black
+        
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.barTintColor = .white
     }
+    
+    
     
     
 

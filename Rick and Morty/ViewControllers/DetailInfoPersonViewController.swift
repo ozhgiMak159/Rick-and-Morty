@@ -43,6 +43,9 @@ class DetailInfoPersonViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let episodesVC = navigationVC.topViewController as? EpisodesTableViewController else { return }
+        episodesVC.character = character
         
     }
     
