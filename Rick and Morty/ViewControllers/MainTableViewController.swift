@@ -26,38 +26,88 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .black
-        tableView.rowHeight = 65
+        tableView.rowHeight = 70
         
         fetchData(from: Link.rickAndMortyApi.rawValue)
+        
+        setupSearchController()
+        setupNavigationBar()
 
     }
 
     // MARK: - Table view data source
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        isFiltering ? filteredCharacter.count : rickAndMorty?.results.count ?? 0
-//    }
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-//
-//        return cell
-//    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        isFiltering ? filteredCharacter.count : rickAndMorty?.results.count ?? 0
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+
+        return cell
+    }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
     }
+    
+    // MARK: - Private methods
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.barTintColor = .white
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        guard let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField else { return }
+        textField.font = UIFont.boldSystemFont(ofSize: 17)
+        textField.textColor = .white
+    }
+    
+    // данный метод устанавливает навигационный бар и убирает белую полоску при скролле
+    private func setupNavigationBar() {
+        title = "Rick & Morty"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.backgroundColor = .black
+            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            
+            navigationController?.navigationBar.standardAppearance = navBarAppearance // вот эти методы
+            navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance // и эти
+        }
+    }
+    
 
     private func fetchData(from url: String) {
         NetworkManager.shared.fetchData(dataType: RickAndMorty.self, from: url) { dataWithApi in
             switch dataWithApi {
             case .success(let rickAndMortyData):
                 self.rickAndMorty = rickAndMortyData
-                print(rickAndMortyData)
-               // self.tableView.reloadData()
+                self.tableView.reloadData()
             case .failure(_):
                 print("error")
             }
         }
     }
 
+    
+}
+
+// MARK: - UISearchResultsUpdating
+extension MainTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        filteredCharacter = rickAndMorty?.results.filter { character in
+            character.name.lowercased().contains(searchText.lowercased())
+        } ?? []
+        tableView.reloadData()
+    }
+    
 }

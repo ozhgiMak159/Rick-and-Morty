@@ -15,6 +15,7 @@ enum NetworkError: Error {
 }
 
 class NetworkManager {
+    
     static let shared = NetworkManager()
     
     func fetchData<T: Decodable>(dataType: T.Type, from url: String?, with completion: @escaping(Result<T, NetworkError>) -> Void) {
@@ -33,20 +34,8 @@ class NetworkManager {
                 }
             }
     }
+    
     private init() {}
+    
 }
 
-/*
- private func fetchData(from url: String) {
-     NetworkManager.shared.fetchData(dataType: RickAndMorty.self, from: url) { data in
-         switch data {
-         case .success(_):
-             <#code#>
-         case .failure(_):
-             <#code#>
-         }
-     }
-     
- }
-}
- */
