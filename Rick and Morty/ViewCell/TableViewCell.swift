@@ -8,7 +8,7 @@
 import UIKit
 import AlamofireImage
 
-class DetailedTableViewCell: UITableViewCell {
+class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var characterImageView: UIImageView! {

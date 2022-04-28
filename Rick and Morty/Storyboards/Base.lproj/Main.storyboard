@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="orW-ZX-IOL" customClass="DetailedTableViewCell" customModule="Rick_and_Morty" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="orW-ZX-IOL" customClass="TableViewCell" customModule="Rick_and_Morty" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="orW-ZX-IOL" id="VFh-kl-N0V">
@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="150.72463768115944" y="60.9375"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Info Person View Controller-->
         <scene sceneID="wZs-ny-zXQ">
             <objects>
-                <viewController id="NoN-gN-04o" sceneMemberID="viewController">
+                <viewController id="NoN-gN-04o" customClass="DetailInfoPersonViewController" customModule="Rick_and_Morty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NWN-8W-bDH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,14 +90,23 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qvE-BA-igr">
                                 <rect key="frame" x="57" y="160" width="300" height="300"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUe-Tb-hBg">
+                                <rect key="frame" x="20" y="500" width="374" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YSI-Xd-NtJ"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qvE-BA-igr" firstAttribute="top" secondItem="YSI-Xd-NtJ" secondAttribute="top" constant="20" id="7Ng-ft-ei5"/>
                             <constraint firstItem="qvE-BA-igr" firstAttribute="centerX" secondItem="NWN-8W-bDH" secondAttribute="centerX" id="bv0-1e-gFb"/>
+                            <constraint firstItem="YSI-Xd-NtJ" firstAttribute="trailing" secondItem="fUe-Tb-hBg" secondAttribute="trailing" constant="20" id="cqH-11-Gx7"/>
                             <constraint firstItem="qvE-BA-igr" firstAttribute="height" secondItem="NWN-8W-bDH" secondAttribute="height" multiplier="0.334821" id="hI4-Zn-mkQ"/>
                             <constraint firstItem="qvE-BA-igr" firstAttribute="width" secondItem="NWN-8W-bDH" secondAttribute="height" multiplier="75:224" id="iaV-u3-hfw"/>
+                            <constraint firstItem="fUe-Tb-hBg" firstAttribute="top" secondItem="qvE-BA-igr" secondAttribute="bottom" constant="40" id="kw8-yX-ZUx"/>
+                            <constraint firstItem="fUe-Tb-hBg" firstAttribute="leading" secondItem="YSI-Xd-NtJ" secondAttribute="leading" constant="20" id="vzi-dZ-OaZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eLb-is-8rk">
@@ -107,6 +116,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="fUe-Tb-hBg" id="rSa-J4-Bhp"/>
+                        <outlet property="imagePerson" destination="qvE-BA-igr" id="WWf-6G-UHk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="991-08-mV2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

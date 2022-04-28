@@ -39,8 +39,7 @@ class MainTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! DetailedTableViewCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
         let character = isFiltering ? filteredCharacter[indexPath.row] : rickAndMorty?.results[indexPath.row]
         cell.configure(with: character)
         
@@ -50,10 +49,16 @@ class MainTableViewController: UITableViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        guard let detailVC = segue.destination as? DetailInfoPersonViewController else { return }
+        guard let character = isFiltering ? filteredCharacter[indexPath.row] : rickAndMorty?.results[indexPath.row] else { return }
+        detailVC.character = character
     }
     
     
     @IBAction func upData(_ sender: UIBarButtonItem) {
+        sender.tag == 1
+        ? fetchData(from: rickAndMorty?.info.next ?? "")
+        : fetchData(from: rickAndMorty?.info.prev ?? "")
     }
     
     
@@ -102,7 +107,7 @@ class MainTableViewController: UITableViewController {
                 self.rickAndMorty = rickAndMortyData
                 self.tableView.reloadData()
             case .failure(_):
-                print("error")
+                print("error") // можно сделать алерт
             }
         }
     }
