@@ -22,6 +22,9 @@ class DetailedTableViewCell: UITableViewCell {
     
     func configure(with character: Character?) {
         nameLabel.text = character?.name
+        
+        guard let imageUrl = URL(string: character?.image ?? "") else { return }
+        characterImageView.af.setImage(withURL: imageUrl)
     }
     
     

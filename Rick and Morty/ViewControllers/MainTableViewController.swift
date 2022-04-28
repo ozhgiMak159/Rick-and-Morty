@@ -31,7 +31,6 @@ class MainTableViewController: UITableViewController {
         
         setupSearchController()
         setupNavigationBar()
-
     }
 
     // MARK: - Table view data source
@@ -47,16 +46,15 @@ class MainTableViewController: UITableViewController {
         
         return cell
     }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
     }
     
     
     @IBAction func upData(_ sender: UIBarButtonItem) {
     }
-    
-    
     
     
     // MARK: - Private methods

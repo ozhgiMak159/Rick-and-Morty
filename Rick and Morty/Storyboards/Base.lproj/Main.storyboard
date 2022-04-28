@@ -63,8 +63,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="W0m-Rb-I8h">
-                        <barButtonItem key="leftBarButtonItem" title="Prev" id="fTn-Rb-S64"/>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="Gg1-Te-bkP"/>
+                        <barButtonItem key="leftBarButtonItem" title="Prev" id="fTn-Rb-S64">
+                            <connections>
+                                <action selector="upData:" destination="ZWo-Wa-v47" id="ipF-EG-oxJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Next" id="Gg1-Te-bkP">
+                            <connections>
+                                <action selector="upData:" destination="ZWo-Wa-v47" id="J7e-GU-s4f"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQB-at-M4a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
