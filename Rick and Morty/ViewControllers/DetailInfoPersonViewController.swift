@@ -8,6 +8,9 @@
 import UIKit
 import AlamofireImage
 
+
+// Рефакторинг
+
 class DetailInfoPersonViewController: UIViewController {
 
     
