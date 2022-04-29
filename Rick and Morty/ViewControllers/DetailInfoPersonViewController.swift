@@ -20,7 +20,6 @@ class DetailInfoPersonViewController: UIViewController {
     
     var character: Character!
    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
       

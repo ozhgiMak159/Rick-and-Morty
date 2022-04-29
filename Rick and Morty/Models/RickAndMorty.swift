@@ -52,6 +52,13 @@ struct Episode: Decodable {
     let episode: String
     let characters: [String]
     
+    var description: String {
+        """
+    Title: \(name)
+    Date: \(airDate)
+    """
+    }
+    
     
     
     enum CodingKeys: String, CodingKey {

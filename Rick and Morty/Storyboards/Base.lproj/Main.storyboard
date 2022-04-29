@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="orW-ZX-IOL" customClass="TableViewCell" customModule="Rick_and_Morty" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellOne" rowHeight="80" id="orW-ZX-IOL" customClass="TableViewCell" customModule="Rick_and_Morty" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="orW-ZX-IOL" id="VFh-kl-N0V">
@@ -134,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell2" textLabel="ZlN-mI-sXw" style="IBUITableViewCellStyleDefault" id="mUH-jx-3aq">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellTwo" textLabel="ZlN-mI-sXw" style="IBUITableViewCellStyleDefault" id="mUH-jx-3aq">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mUH-jx-3aq" id="XPa-GF-teY">
@@ -151,9 +151,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <segue destination="RXM-Tx-ovf" kind="show" id="1zP-K4-53k"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -162,6 +159,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Episodes" id="Viy-Nr-4no"/>
+                    <connections>
+                        <segue destination="RXM-Tx-ovf" kind="show" identifier="ShowEpisode" id="Enp-ph-LG9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JNm-4t-gye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,7 +180,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell3" rowHeight="74" id="GPf-gd-QWG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellOne" rowHeight="74" id="GPf-gd-QWG" customClass="TableViewCell" customModule="Rick_and_Morty" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GPf-gd-QWG" id="0GQ-3F-w3a">
@@ -213,13 +213,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <segue destination="MyL-Z8-deJ" kind="show" id="Usx-iY-OZA"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="RXM-Tx-ovf" id="rtd-rc-Za7"/>
+                                    <outlet property="dataSource" destination="RXM-Tx-ovf" id="Yva-kQ-q8I"/>
                                     <outlet property="delegate" destination="RXM-Tx-ovf" id="p4b-QQ-7qS"/>
                                 </connections>
                             </tableView>
@@ -250,16 +247,17 @@
                     <connections>
                         <outlet property="episodeDescription" destination="yV7-XW-MdS" id="zc4-ot-yXN"/>
                         <outlet property="tableView" destination="gBM-fb-T0s" id="Aq2-EM-T2U"/>
+                        <segue destination="MyL-Z8-deJ" kind="show" identifier="showCharacter" id="Bun-kJ-r7b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSo-3h-sxB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3360.8695652173915" y="60.9375"/>
         </scene>
-        <!--View Controller-->
+        <!--Episodes Detail View Controller-->
         <scene sceneID="WHz-5i-mFk">
             <objects>
-                <viewController id="MyL-Z8-deJ" sceneMemberID="viewController">
+                <viewController id="MyL-Z8-deJ" customClass="EpisodesDetailViewController" customModule="Rick_and_Morty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MKd-os-WE7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
