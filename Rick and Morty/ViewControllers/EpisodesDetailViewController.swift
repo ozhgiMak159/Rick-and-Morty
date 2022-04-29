@@ -24,6 +24,7 @@ class EpisodesDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCharacters()
+        
         title = episode.episode
         episodeDescription.text = episode.description
     }
@@ -54,7 +55,9 @@ extension EpisodesDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellOne",for: indexPath) as! TableViewCell
+        
         let characterURL = episode.characters[indexPath.row]
+        
         NetworkManager.shared.fetchData(dataType: Character.self, from: characterURL) { result in
             switch result {
             case .success(let data):
@@ -63,6 +66,7 @@ extension EpisodesDetailViewController: UITableViewDataSource {
                 print("12")
             }
         }
+        
         return cell
     }
 }
@@ -70,8 +74,9 @@ extension EpisodesDetailViewController: UITableViewDataSource {
 extension EpisodesDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
         let character = characters[indexPath.row]
         performSegue(withIdentifier: "showCharacter", sender: character)
     }
-    
+
 }

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellOne" rowHeight="80" id="orW-ZX-IOL" customClass="TableViewCell" customModule="Rick_and_Morty" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellOne" rowHeight="80" id="orW-ZX-IOL" customClass="TableViewCell" customModule="Rick_and_Morty">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="orW-ZX-IOL" id="VFh-kl-N0V">
@@ -213,11 +213,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="characterImageView" destination="DtF-yc-fea" id="FBv-U5-OQ3"/>
+                                            <outlet property="nameLabel" destination="8jz-0e-Q9d" id="0RO-PK-caD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="RXM-Tx-ovf" id="Yva-kQ-q8I"/>
-                                    <outlet property="delegate" destination="RXM-Tx-ovf" id="p4b-QQ-7qS"/>
+                                    <outlet property="delegate" destination="RXM-Tx-ovf" id="sEk-pR-Cci"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Kep-pw-jZZ">
@@ -254,10 +258,11 @@
             </objects>
             <point key="canvasLocation" x="3360.8695652173915" y="60.9375"/>
         </scene>
-        <!--Episodes Detail View Controller-->
+        <!--Detail Info Person View Controller-->
         <scene sceneID="WHz-5i-mFk">
             <objects>
-                <viewController id="MyL-Z8-deJ" customClass="EpisodesDetailViewController" customModule="Rick_and_Morty" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wwi-dn-epj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="MyL-Z8-deJ" customClass="DetailInfoPersonViewController" customModule="Rick_and_Morty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MKd-os-WE7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -265,10 +270,19 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3fv-cC-ppH">
                                 <rect key="frame" x="57" y="76" width="300" height="300"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32M-YS-uHH">
+                                <rect key="frame" x="20" y="416" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="w5b-bd-cEg"/>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="w5b-bd-cEg" firstAttribute="trailing" secondItem="32M-YS-uHH" secondAttribute="trailing" constant="20" id="C9L-Lh-0BD"/>
+                            <constraint firstItem="32M-YS-uHH" firstAttribute="top" secondItem="3fv-cC-ppH" secondAttribute="bottom" constant="40" id="D9Z-MQ-G1O"/>
+                            <constraint firstItem="32M-YS-uHH" firstAttribute="leading" secondItem="w5b-bd-cEg" secondAttribute="leading" constant="20" id="DGc-pa-ncc"/>
                             <constraint firstItem="3fv-cC-ppH" firstAttribute="width" secondItem="MKd-os-WE7" secondAttribute="height" multiplier="150:421" id="ahz-S9-6bW"/>
                             <constraint firstItem="3fv-cC-ppH" firstAttribute="centerX" secondItem="w5b-bd-cEg" secondAttribute="centerX" id="cRL-5j-33Y"/>
                             <constraint firstItem="3fv-cC-ppH" firstAttribute="height" secondItem="MKd-os-WE7" secondAttribute="height" multiplier="0.356295" id="czV-E3-cda"/>
@@ -276,8 +290,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YZA-mK-UP3"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="32M-YS-uHH" id="LBg-4D-kJG"/>
+                        <outlet property="imagePerson" destination="3fv-cC-ppH" id="GRX-EJ-Gbb"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wwi-dn-epj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4224.6376811594209" y="60.9375"/>
         </scene>
