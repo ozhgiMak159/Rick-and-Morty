@@ -20,7 +20,7 @@ class TableViewCell: UITableViewCell {
         characterImageView.backgroundColor = .white
         characterImageView.layer.cornerRadius = characterImageView.frame.height / 2
     }
-    
+     
     
     func configure(with character: Character?) {
         nameLabel.text = character?.name 

@@ -15,6 +15,7 @@
 		B59B0D542819685E00191F86 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B0D532819685E00191F86 /* MainTableViewController.swift */; };
 		B59B0D58281968D000191F86 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B0D57281968D000191F86 /* NetworkManager.swift */; };
 		B59B0D5B2819690C00191F86 /* RickAndMorty.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59B0D5A2819690C00191F86 /* RickAndMorty.swift */; };
+		B5B5EE06282246F800D5B094 /* CharacterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B5EE05282246F800D5B094 /* CharacterImageView.swift */; };
 		B5B7C84A281A6BEA00D0DAD2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7C849281A6BEA00D0DAD2 /* TableViewCell.swift */; };
 		B5B7C84D281A9D1000D0DAD2 /* DetailInfoPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7C84C281A9D1000D0DAD2 /* DetailInfoPersonViewController.swift */; };
 		B5B7C84F281AA87F00D0DAD2 /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B7C84E281AA87F00D0DAD2 /* EpisodesTableViewController.swift */; };
@@ -35,6 +36,7 @@
 		B59B0D532819685E00191F86 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		B59B0D57281968D000191F86 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B59B0D5A2819690C00191F86 /* RickAndMorty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMorty.swift; sourceTree = "<group>"; };
+		B5B5EE05282246F800D5B094 /* CharacterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageView.swift; sourceTree = "<group>"; };
 		B5B7C849281A6BEA00D0DAD2 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B5B7C84C281A9D1000D0DAD2 /* DetailInfoPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoPersonViewController.swift; sourceTree = "<group>"; };
 		B5B7C84E281AA87F00D0DAD2 /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesTableViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				B5B7C84C281A9D1000D0DAD2 /* DetailInfoPersonViewController.swift */,
 				B5B7C84E281AA87F00D0DAD2 /* EpisodesTableViewController.swift */,
 				B5B7C850281AC47100D0DAD2 /* EpisodesDetailViewController.swift */,
+				B5B5EE05282246F800D5B094 /* CharacterImageView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				B59B0D542819685E00191F86 /* MainTableViewController.swift in Sources */,
 				B5B7C84D281A9D1000D0DAD2 /* DetailInfoPersonViewController.swift in Sources */,
 				B59B0D58281968D000191F86 /* NetworkManager.swift in Sources */,
+				B5B5EE06282246F800D5B094 /* CharacterImageView.swift in Sources */,
 				B5B7C84F281AA87F00D0DAD2 /* EpisodesTableViewController.swift in Sources */,
 				B59B0D3A28192A0A00191F86 /* AppDelegate.swift in Sources */,
 				B59B0D3C28192A0A00191F86 /* SceneDelegate.swift in Sources */,

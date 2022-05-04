@@ -107,7 +107,7 @@ class MainTableViewController: UITableViewController {
                 self.rickAndMorty = rickAndMortyData
                 self.tableView.reloadData()
             case .failure(_):
-                print("error") // можно сделать алерт
+                print("error") 
             }
         }
     }

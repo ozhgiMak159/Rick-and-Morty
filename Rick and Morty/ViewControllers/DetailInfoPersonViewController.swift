@@ -29,6 +29,8 @@ class DetailInfoPersonViewController: UIViewController {
         add()
     }
     
+    
+    
     func add() {
         
         if let topItem = navigationController?.navigationBar.topItem {
