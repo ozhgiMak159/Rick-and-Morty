@@ -21,7 +21,7 @@ class DetailInfoPersonViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        setupNavBar()
         add()
     }
     
@@ -30,20 +30,16 @@ class DetailInfoPersonViewController: UIViewController {
         imagePerson.layer.cornerRadius = imagePerson.frame.width / 2
     }
     
-    func add() {
-        
-        if let topItem = navigationController?.navigationBar.topItem {
-            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        }
-        title = character.name
+   private func add() {
         descriptionLabel.text = character.description
         imagePerson.fetchImage(from: character.image)
+    }
+    
+    private func setupNavBar() {
+        guard let topItem = navigationController?.navigationBar.topItem else { return }
+        topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        
-//        guard let imageUrl = URL(string: character.image) else { return }
-//        imagePerson.af.setImage(withURL: imageUrl)
-     
-        
+        title = character.name
     }
     
     // MARK: - Navigation
