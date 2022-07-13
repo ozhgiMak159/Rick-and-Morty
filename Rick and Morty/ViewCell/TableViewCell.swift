@@ -11,22 +11,24 @@ import AlamofireImage
 class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var characterImageView: CharacterImageView!
-    
-    
-    override func layoutSubviews() {
-        characterImageView.contentMode = .scaleAspectFit
-        characterImageView.clipsToBounds = true
-        characterImageView.backgroundColor = .white
-        characterImageView.layer.cornerRadius = characterImageView.frame.height / 2
+    @IBOutlet weak var characterImageView: CharacterImageView! {
+        didSet {
+            characterImageView.contentMode = .scaleAspectFit
+            characterImageView.clipsToBounds = true
+            characterImageView.layer.cornerRadius = characterImageView.frame.height / 2
+            characterImageView.backgroundColor = .white
+        }
     }
-     
-    
+
     func configure(with character: Character?) {
         nameLabel.text = character?.name
         
         characterImageView.fetchImage(from: character?.image ?? "")
     }
     
+    
+    override func prepareForReuse() {
+        characterImageView.layer.cornerRadius = characterImageView.frame.height / 2
+    }
     
 }

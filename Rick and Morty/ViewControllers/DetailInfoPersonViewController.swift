@@ -8,12 +8,8 @@
 import UIKit
 import AlamofireImage
 
-
-// Рефакторинг
-
 class DetailInfoPersonViewController: UIViewController {
 
-    
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var imagePerson: CharacterImageView!
     
@@ -22,7 +18,7 @@ class DetailInfoPersonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
-        add()
+        setModel()
     }
     
     override func viewDidLayoutSubviews() {
@@ -30,7 +26,7 @@ class DetailInfoPersonViewController: UIViewController {
         imagePerson.layer.cornerRadius = imagePerson.frame.width / 2
     }
     
-   private func add() {
+   private func setModel() {
         descriptionLabel.text = character.description
         imagePerson.fetchImage(from: character.image)
     }
@@ -49,8 +45,6 @@ class DetailInfoPersonViewController: UIViewController {
         episodesVC.character = character
         
     }
-    
-    
-    
+
 }
 
