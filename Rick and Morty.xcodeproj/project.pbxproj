@@ -86,13 +86,13 @@
 		B59B0D3828192A0A00191F86 /* Rick and Morty */ = {
 			isa = PBXGroup;
 			children = (
-				B59B0D4F281956C500191F86 /* SupportingFiles */,
+				B59B0D5C2819691000191F86 /* Models */,
 				B59B0D502819571B00191F86 /* ViewControllers */,
 				B59B0D4E281956A800191F86 /* Storyboards */,
-				B59B0D4D2819560000191F86 /* Sourse */,
-				B59B0D59281968D500191F86 /* Services */,
-				B59B0D5C2819691000191F86 /* Models */,
 				B5B7C84B281A6BEF00D0DAD2 /* ViewCell */,
+				B59B0D59281968D500191F86 /* Services */,
+				B59B0D4F281956C500191F86 /* SupportingFiles */,
+				B59B0D4D2819560000191F86 /* Sourse */,
 			);
 			path = "Rick and Morty";
 			sourceTree = "<group>";

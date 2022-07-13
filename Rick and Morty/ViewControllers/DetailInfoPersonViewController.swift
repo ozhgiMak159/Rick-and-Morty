@@ -10,11 +10,14 @@ import AlamofireImage
 
 class DetailInfoPersonViewController: UIViewController {
 
+    // MARK: - IB Outlet
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var imagePerson: CharacterImageView!
     
+    // MARK: - Public properties
     var character: Character!
    
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()

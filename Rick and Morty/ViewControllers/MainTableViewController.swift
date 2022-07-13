@@ -81,7 +81,6 @@ class MainTableViewController: UITableViewController {
         tableView.rowHeight = 80
     }
     
-    // данный метод устанавливает навигационный бар и убирает белую полоску при скролле
     private func setupNavigationBar() {
         title = "Rick & Morty"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -93,8 +92,8 @@ class MainTableViewController: UITableViewController {
             navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
             
-            navigationController?.navigationBar.standardAppearance = navBarAppearance // вот эти методы
-            navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance // и эти
+            navigationController?.navigationBar.standardAppearance = navBarAppearance
+            navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         }
     }
     
@@ -110,7 +109,6 @@ class MainTableViewController: UITableViewController {
             }
         }
     }
-
     
 }
 
@@ -124,7 +122,7 @@ extension MainTableViewController: UISearchResultsUpdating {
         filteredCharacter = rickAndMorty?.results.filter { character in
             character.name.lowercased().contains(searchText.lowercased())
         } ?? []
+        
         tableView.reloadData()
     }
-    
 }

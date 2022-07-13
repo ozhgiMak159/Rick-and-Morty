@@ -9,7 +9,7 @@ import UIKit
 
 class EpisodesDetailViewController: UIViewController {
     
-    
+    // MARK: - Public and Private properties
     @IBOutlet var tableView: UITableView!
     @IBOutlet var episodeDescription: UILabel!
     

@@ -9,15 +9,17 @@ import UIKit
 
 class EpisodesTableViewController: UITableViewController {
     
+    // MARK: - Public and Private properties
     var character: Character!
-    var episodes: [Episode] = []
+    private var episodes: [Episode] = []
 
+    // MARK: - Life cycle EpisodesTableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
-
         settingsTableVC()
     }
     
+    // MARK: - Private method
     private func settingsTableVC() {
         tableView.rowHeight = 70
         tableView.backgroundColor = .black
