@@ -81,7 +81,6 @@ class MainTableViewController: UITableViewController {
         tableView.rowHeight = 80
     }
     
-    
     // данный метод устанавливает навигационный бар и убирает белую полоску при скролле
     private func setupNavigationBar() {
         title = "Rick & Morty"

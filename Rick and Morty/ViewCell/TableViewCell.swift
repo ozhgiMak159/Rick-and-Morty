@@ -11,7 +11,7 @@ import AlamofireImage
 class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var characterImageView: UIImageView! 
+    @IBOutlet weak var characterImageView: CharacterImageView!
     
     
     override func layoutSubviews() {
@@ -23,10 +23,9 @@ class TableViewCell: UITableViewCell {
      
     
     func configure(with character: Character?) {
-        nameLabel.text = character?.name 
+        nameLabel.text = character?.name
         
-        guard let imageUrl = URL(string: character?.image ?? "") else { return }
-        characterImageView.af.setImage(withURL: imageUrl)
+        characterImageView.fetchImage(from: character?.image ?? "")
     }
     
     

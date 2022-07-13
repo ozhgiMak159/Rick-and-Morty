@@ -15,11 +15,7 @@ class DetailInfoPersonViewController: UIViewController {
 
     
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var imagePerson: UIImageView! {
-        didSet {
-            imagePerson.layer.cornerRadius = imagePerson.frame.width / 2
-        }
-    }
+    @IBOutlet var imagePerson: CharacterImageView!
     
     var character: Character!
    
@@ -29,7 +25,10 @@ class DetailInfoPersonViewController: UIViewController {
         add()
     }
     
-    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        imagePerson.layer.cornerRadius = imagePerson.frame.width / 2
+    }
     
     func add() {
         
@@ -38,9 +37,11 @@ class DetailInfoPersonViewController: UIViewController {
         }
         title = character.name
         descriptionLabel.text = character.description
+        imagePerson.fetchImage(from: character.image)
         
-        guard let imageUrl = URL(string: character.image) else { return }
-        imagePerson.af.setImage(withURL: imageUrl)
+        
+//        guard let imageUrl = URL(string: character.image) else { return }
+//        imagePerson.af.setImage(withURL: imageUrl)
      
         
     }
