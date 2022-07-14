@@ -23,27 +23,14 @@ class MainTableViewController: UITableViewController {
         return searchController.isActive && !searchBarIsEmpty
     }
     
+    // MARK: - Life Cycles Method
     override func viewDidLoad() {
         super.viewDidLoad()
         settingsTableVC()
-        
         fetchData(from: Link.rickAndMortyApi.rawValue)
         
         setupSearchController()
         setupNavigationBar()
-    }
-
-    // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        isFiltering ? filteredCharacter.count : rickAndMorty?.results.count ?? 0
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellOne", for: indexPath) as! TableViewCell
-        let character = isFiltering ? filteredCharacter[indexPath.row] : rickAndMorty?.results[indexPath.row]
-        cell.configure(with: character)
-        
-        return cell
     }
     
     // MARK: - Navigation
@@ -54,14 +41,13 @@ class MainTableViewController: UITableViewController {
         detailVC.character = character
     }
     
-    
+    // MARK: - IB Action
     @IBAction func upData(_ sender: UIBarButtonItem) {
         sender.tag == 1
         ? fetchData(from: rickAndMorty?.info.next ?? "")
         : fetchData(from: rickAndMorty?.info.prev ?? "")
     }
-    
-    
+
     // MARK: - Private methods
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
@@ -97,7 +83,7 @@ class MainTableViewController: UITableViewController {
         }
     }
     
-
+    // MARK: - Networking
     private func fetchData(from url: String) {
         NetworkManager.shared.fetchData(dataType: RickAndMorty.self, from: url) { dataWithApi in
             switch dataWithApi {
@@ -105,11 +91,25 @@ class MainTableViewController: UITableViewController {
                 self.rickAndMorty = rickAndMortyData
                 self.tableView.reloadData()
             case .failure(_):
-                print("error") 
+                print("error")
             }
         }
     }
+}
+
+// MARK: - Table view data source
+extension MainTableViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        isFiltering ? filteredCharacter.count : rickAndMorty?.results.count ?? 0
+    }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellOne", for: indexPath) as! TableViewCell
+        let character = isFiltering ? filteredCharacter[indexPath.row] : rickAndMorty?.results[indexPath.row]
+        cell.configure(with: character)
+        
+        return cell
+    }
 }
 
 // MARK: - UISearchResultsUpdating

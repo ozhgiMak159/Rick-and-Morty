@@ -29,25 +29,24 @@ class DetailInfoPersonViewController: UIViewController {
         imagePerson.layer.cornerRadius = imagePerson.frame.width / 2
     }
     
-   private func setModel() {
-        descriptionLabel.text = character.description
-        imagePerson.fetchImage(from: character.image)
-    }
-    
-    private func setupNavBar() {
-        guard let topItem = navigationController?.navigationBar.topItem else { return }
-        topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        title = character.name
-    }
-    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let navigationVC = segue.destination as? UINavigationController else { return }
         guard let episodesVC = navigationVC.topViewController as? EpisodesTableViewController else { return }
         episodesVC.character = character
-        
     }
-
+    
+    // MARK: - Private Methods
+   private func setModel() {
+        descriptionLabel.text = character.description
+        imagePerson.fetchImage(from: character.image)
+        title = character.name
+    }
+    
+    private func setupNavBar() {
+        guard let topItem = navigationController?.navigationBar.topItem else { return }
+        topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
 }
 

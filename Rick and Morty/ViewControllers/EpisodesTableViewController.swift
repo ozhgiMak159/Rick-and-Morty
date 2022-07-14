@@ -13,10 +13,16 @@ class EpisodesTableViewController: UITableViewController {
     var character: Character!
     private var episodes: [Episode] = []
 
-    // MARK: - Life cycle EpisodesTableViewController
+    // MARK: - Life Cycle EpisodesTableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         settingsTableVC()
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let episodeDetailsVC = segue.destination as? EpisodesDetailViewController else { return }
+        episodeDetailsVC.episode = sender as? Episode
     }
     
     // MARK: - Private method
@@ -31,8 +37,10 @@ class EpisodesTableViewController: UITableViewController {
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.barTintColor = .white
     }
-    
-    // MARK: - Table view data source
+}
+
+// MARK: - Table view data source
+extension EpisodesTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         character.episode.count
     }
@@ -62,9 +70,4 @@ class EpisodesTableViewController: UITableViewController {
         performSegue(withIdentifier: "ShowEpisode", sender: episode)
     }
     
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let episodeDetailsVC = segue.destination as? EpisodesDetailViewController else { return }
-        episodeDetailsVC.episode = sender as? Episode
-    }
 }
