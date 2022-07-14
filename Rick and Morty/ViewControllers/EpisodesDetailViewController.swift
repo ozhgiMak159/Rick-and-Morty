@@ -24,6 +24,11 @@ class EpisodesDetailViewController: UIViewController {
         }
     }
     
+    // MARK: - de init
+    deinit {
+        print("EpisodesDetailViewController - выгружен")
+    }
+    
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +47,10 @@ class EpisodesDetailViewController: UIViewController {
     // MARK: - Networking
     private func setCharacters() {
         episode.characters.forEach { characterURL in
-            NetworkManager.shared.fetchData(dataType: Character.self, from: characterURL) { result in
+            NetworkManager.shared.fetchData(dataType: Character.self, from: characterURL) { [weak self] result in
                 switch result {
                 case .success(let ok):
-                    self.characters.append(ok)
+                    self?.characters.append(ok)
                 case .failure(_):
                     print("1")
                 }

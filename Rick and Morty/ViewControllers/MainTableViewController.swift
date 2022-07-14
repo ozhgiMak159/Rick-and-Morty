@@ -23,6 +23,11 @@ class MainTableViewController: UITableViewController {
         return searchController.isActive && !searchBarIsEmpty
     }
     
+    // MARK: - de init
+    deinit {
+        print("MainTableViewController - выгружен")
+    }
+    
     // MARK: - Life Cycles Method
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,11 +90,11 @@ class MainTableViewController: UITableViewController {
     
     // MARK: - Networking
     private func fetchData(from url: String) {
-        NetworkManager.shared.fetchData(dataType: RickAndMorty.self, from: url) { dataWithApi in
+        NetworkManager.shared.fetchData(dataType: RickAndMorty.self, from: url) { [weak self] dataWithApi in
             switch dataWithApi {
             case .success(let rickAndMortyData):
-                self.rickAndMorty = rickAndMortyData
-                self.tableView.reloadData()
+                self?.rickAndMorty = rickAndMortyData
+                self?.tableView.reloadData()
             case .failure(_):
                 print("error")
             }

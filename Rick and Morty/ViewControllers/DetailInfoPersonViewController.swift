@@ -12,10 +12,15 @@ class DetailInfoPersonViewController: UIViewController {
 
     // MARK: - IB Outlet
     @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var imagePerson: CharacterImageView!
+    @IBOutlet weak var imagePerson: CharacterImageView!
     
     // MARK: - Public properties
     var character: Character!
+    
+    // MARK: - de init
+    deinit {
+        print("DetailInfoPersonViewController - выгружен")
+    }
    
     // MARK: - Life cycle
     override func viewDidLoad() {

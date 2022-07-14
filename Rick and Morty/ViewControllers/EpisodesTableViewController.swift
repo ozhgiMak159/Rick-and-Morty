@@ -12,6 +12,11 @@ class EpisodesTableViewController: UITableViewController {
     // MARK: - Public and Private properties
     var character: Character!
     private var episodes: [Episode] = []
+    
+    // MARK: - de init
+    deinit {
+        print("EpisodesTableViewController - выгружен")
+    }
 
     // MARK: - Life Cycle EpisodesTableViewController
     override func viewDidLoad() {
@@ -52,10 +57,10 @@ extension EpisodesTableViewController {
         let episodeURL = character.episode[indexPath.row]
         content.textProperties.color = .white
         content.textProperties.font = UIFont.boldSystemFont(ofSize: 19)
-        NetworkManager.shared.fetchData(dataType: Episode.self, from: episodeURL) { result in
+        NetworkManager.shared.fetchData(dataType: Episode.self, from: episodeURL) { [weak self] result in
             switch result {
             case .success(let episode):
-                self.episodes.append(episode)
+                self?.episodes.append(episode)
                 content.text = episode.name
                 cell.contentConfiguration = content
             case .failure(let error):
