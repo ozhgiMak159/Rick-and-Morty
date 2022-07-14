@@ -57,6 +57,7 @@ extension EpisodesTableViewController {
         let episodeURL = character.episode[indexPath.row]
         content.textProperties.color = .white
         content.textProperties.font = UIFont.boldSystemFont(ofSize: 19)
+        
         NetworkManager.shared.fetchData(dataType: Episode.self, from: episodeURL) { [weak self] result in
             switch result {
             case .success(let episode):

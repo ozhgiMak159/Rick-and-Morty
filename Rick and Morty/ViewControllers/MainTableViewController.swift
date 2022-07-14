@@ -12,7 +12,7 @@ class MainTableViewController: UITableViewController {
     // MARK: - Private properties
     private var rickAndMorty: RickAndMorty?
     private var filteredCharacter: [Character] = []
-    private let searchController = UISearchController(searchResultsController: nil)
+    private var searchController = UISearchController(searchResultsController: nil)
     
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
@@ -128,6 +128,6 @@ extension MainTableViewController: UISearchResultsUpdating {
             character.name.lowercased().contains(searchText.lowercased())
         } ?? []
         
-        tableView.reloadData()
+            tableView.reloadData()
     }
 }

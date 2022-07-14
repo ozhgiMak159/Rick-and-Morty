@@ -20,7 +20,6 @@ class CharacterImageView: UIImageView {
         ImageManager.shared.fetchImage(from: imageUrl) { [weak self] data, response in
             self?.saveDataToCashe(with: data, and: response)
             if imageUrl.lastPathComponent == response.url?.lastPathComponent {
-                print("Image from url - \(imageUrl.lastPathComponent)")
                 self?.image = UIImage(data: data)
             }
         }
@@ -37,7 +36,6 @@ class CharacterImageView: UIImageView {
         let request = URLRequest(url: url)
         guard let cachedResponse = URLCache.shared.cachedResponse(for: request) else { return nil }
         guard url.lastPathComponent == cachedResponse.response.url?.lastPathComponent else { return nil }
-        print("Image from cache - \(url.lastPathComponent)")
         return UIImage(data: cachedResponse.data)
     }
     

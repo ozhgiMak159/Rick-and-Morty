@@ -22,13 +22,11 @@ class TableViewCell: UITableViewCell {
 
     func configure(with character: Character?) {
         nameLabel.text = character?.name
-        
         characterImageView.fetchImage(from: character?.image ?? "")
     }
-    
-    
-    override func prepareForReuse() {
-        characterImageView.layer.cornerRadius = characterImageView.frame.height / 2
+        
+    deinit {
+        print("TableViewCell - Выгружено")
     }
     
 }
