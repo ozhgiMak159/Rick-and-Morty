@@ -14,8 +14,6 @@ enum NetworkError: Error {
     case decodingError
 }
 
-// AFError???????????
-
 class NetworkManager {
     
     static let shared = NetworkManager()
