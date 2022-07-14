@@ -9,11 +9,13 @@ import UIKit
 
 class EpisodesDetailViewController: UIViewController {
     
-    // MARK: - Public and Private properties
+    // MARK: - IB Outlet
     @IBOutlet var tableView: UITableView!
     @IBOutlet var episodeDescription: UILabel!
     
+    // MARK: - Public and Private properties
     var episode: Episode!
+    
     private var characters: [Character] = [] {
         didSet {
             if characters.count == episode.characters.count {
@@ -21,6 +23,8 @@ class EpisodesDetailViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setCharacters()
@@ -29,11 +33,13 @@ class EpisodesDetailViewController: UIViewController {
         episodeDescription.text = episode.description
     }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let detailsVC = segue.destination as? DetailInfoPersonViewController else { return }
         detailsVC.character = sender as? Character
     }
     
+    // MARK: - Networking
     private func setCharacters() {
         episode.characters.forEach { characterURL in
             NetworkManager.shared.fetchData(dataType: Character.self, from: characterURL) { result in
@@ -47,7 +53,7 @@ class EpisodesDetailViewController: UIViewController {
         }
     }
 }
-
+// MARK: - Table view data source
 extension EpisodesDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         episode.characters.count
@@ -71,6 +77,7 @@ extension EpisodesDetailViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - Table view delegate
 extension EpisodesDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -78,5 +85,4 @@ extension EpisodesDetailViewController: UITableViewDelegate {
         let character = characters[indexPath.row]
         performSegue(withIdentifier: "showCharacter", sender: character)
     }
-
 }
